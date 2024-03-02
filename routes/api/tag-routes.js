@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const { Tag, Product, ProductTag} = require('../../models');
 
 // The `/api/tags` endpoint
 
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     });
     res.status(200).json(tagData);
   } catch (err) {
-    res.status(500).json({ message: "Tags not found!" });
+    res.status(500).json(err);
   }
 });
 
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(tagData);
   } catch (err) {
-    res.status(500).json({ message: "Tag not found!" });
+    res.status(500).json(err);
   }
 });
 
